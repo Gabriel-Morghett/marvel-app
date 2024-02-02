@@ -6,10 +6,10 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Characters from "./routes/Characters";
+import Authentication from "./routes/Authentication";
 
 // components
 import NavegationBar from "./components/NavegationBar";
-import Authentication from "./routes/Authentication";
 
 // css
 import "./styles/App.css";
