@@ -9,23 +9,22 @@ import Characters from "./routes/Characters";
 
 // omponents
 import NavegationBar from "./components/NavegationBar";
+import Authentication from "./routes/Authentication";
 
 function App() {
     return (
         <>
+            
             <Router>
                 <NavegationBar />
+                <Header/>
                 <Routes>
-                    <Route path={"/"} element={<Home />} />
-                    {/* <Route path={"about"} element={<About />} /> */}
+                    <Route path={"/auth"} element={<Authentication />} />
+                    <Route path={"home"} element={<Home />} />
                     <Route path={"/:id"} element={<Characters />} />
                 </Routes>
             </Router>
-        {/* <div>
-            <Header />
-        </div> */}
         </>
-    
     );
 }
 
