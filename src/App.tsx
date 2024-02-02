@@ -7,23 +7,27 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Characters from "./routes/Characters";
 
-// omponents
+// components
 import NavegationBar from "./components/NavegationBar";
 import Authentication from "./routes/Authentication";
+
+// css
+import "./styles/App.css";
 
 function App() {
     return (
         <>
-            
-            <Router>
+            <div className="app">
                 <NavegationBar />
                 <Header/>
-                <Routes>
-                    <Route path={"/auth"} element={<Authentication />} />
-                    <Route path={"home"} element={<Home />} />
-                    <Route path={"/:id"} element={<Characters />} />
-                </Routes>
-            </Router>
+                <Router>
+                    <Routes>
+                        <Route path={"/"} element={<Home />} />
+                        <Route path={"/auth"} element={<Authentication />} />
+                        <Route path={"/:id"} element={<Characters />} />
+                    </Routes>
+                </Router>
+            </div>
         </>
     );
 }
