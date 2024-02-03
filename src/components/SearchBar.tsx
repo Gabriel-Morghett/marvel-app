@@ -1,19 +1,35 @@
 import React, { useRef } from 'react'
 import { fetchHero, fetchHeroes } from '../libs/utils';
+import { useCookies } from 'react-cookie';
 
-export default function SearchBar({setter} : any) {
-    let input = useRef<HTMLInputElement>(null);
+interface SearchBarProps {
+    setter: (heroes: any) => void;
+  }
+
+export default function SearchBar({setter} : SearchBarProps) {
+    const input = useRef<HTMLInputElement>(null);
+    const [cookies] = useCookies(['user']);
+    console.log("COOKIES AQUI", cookies)
 
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        let value = input.current?.value
-        if (value === "") return
+        e.preventDefault();
 
+        const value = input.current?.value;
+        if (!value) return;
 
-        try {
-            let heroes = await fetchHeroes(value ?? "");
-            setter(heroes);
-        } catch (err) {
-            console.error("Erro ao buscar heróis:", err);
+        const { user } = cookies;
+
+        if (user) {
+            const { publicKey, privateKey } = user;
+      
+            try {
+                const heroes = await fetchHeroes(value, publicKey, privateKey);
+                setter(heroes);
+            } catch (err) {
+                console.error('Erro ao buscar heróis:', err);
+            }
+        } else {
+            console.error('Usuário não autenticado.');
         }
     }
 
