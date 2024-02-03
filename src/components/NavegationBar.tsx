@@ -8,10 +8,10 @@ export default function NavegationBar() {
     <nav className='navegationBar'>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="/">Authentication</a>
             </li>
             <li>
-                <a href="auth">Authentication</a>
+                <a href="search">Search Hero</a>
             </li>
             {/* <li>
                 <a href="about">About</a>

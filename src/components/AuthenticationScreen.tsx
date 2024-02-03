@@ -4,7 +4,6 @@ type Props = {
     onLogin: (keys: { publicKey: string; privateKey: string }) => void;
 };
 
-
 function AuthenticationScreen({ onLogin } : Props) {
     const [publicKey, setPublicKey] = useState("");
     const [privateKey, setPrivateKey] = useState("");

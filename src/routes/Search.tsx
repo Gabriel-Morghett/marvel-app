@@ -3,7 +3,7 @@ import Container from '../components/Container'
 import SearchBar from '../components/SearchBar';
 import Grid from '../components/Grid';
 
-export default function Home() {
+export default function Search() {
 
     const [heroes, setHeroes] = useState([])
 
