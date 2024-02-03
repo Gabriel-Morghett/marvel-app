@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./components/Header"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import { CookiesProvider, useCookies } from "react-cookie";
 
 // routes
 import Home from "./routes/Home";
@@ -15,6 +16,7 @@ import NavegationBar from "./components/NavegationBar";
 import "./styles/App.css";
 
 function App() {
+
     return (
         <>
             <div className="app">
@@ -33,19 +35,3 @@ function App() {
 }
 
 export default App;
-
-
-// import { Main } from './Components/Main';
-// import './Components/style.css';
-// import { Marvel } from './Components/Marvel';
-
-// function App() {
-//   return (
-//     <>
-//      <Routes>
-//        <Route path='/'element={<Main/>}/>
-//        <Route path='/:id' element={<Marvel/>}/>
-//      </Routes>
-//     </>
-//   )
-// }

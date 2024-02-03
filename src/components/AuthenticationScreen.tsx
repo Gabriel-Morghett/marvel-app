@@ -1,33 +1,38 @@
-import React, { useRef } from 'react'
+import React, { FormEvent, useRef, useState } from 'react'
 
-// interface SearchBarProps {
-//     setter: any;
-//   }
-
-export default function AuthenticationScreen({setter} : any) {
-    let input = useRef<HTMLInputElement>(null);
-
-    const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        let value = input.current?.value
-        if (value === "") return
+type Props = {
+    onLogin: (keys: { publicKey: string; privateKey: string }) => void;
+};
 
 
-        try {
+function AuthenticationScreen({ onLogin } : Props) {
+    const [publicKey, setPublicKey] = useState("");
+    const [privateKey, setPrivateKey] = useState("");
 
-        } catch (err) {
-            console.error(err);
-        }
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        onLogin({ publicKey, privateKey });
     }
 
     return (
-        <form>
-            <input type="text" placeholder="Insert your public key" ref={input} />
-            <input type="text" placeholder="Insert your private key" ref={input} />
-            <button onClick={handleClick}>Submit</button>
+        <form onSubmit={handleSubmit}>
+            <input 
+                type="text" 
+                placeholder="Insert your public key" 
+                onChange={(e) => setPublicKey(e.target.value)} 
+            />
+            <input 
+                type="text" 
+                placeholder="Insert your private key" 
+                onChange={(e) => setPrivateKey(e.target.value)} 
+            />
+            <button type="submit">Submit</button>
         </form>
     )
 }
 
 
 
+export default AuthenticationScreen;
 
