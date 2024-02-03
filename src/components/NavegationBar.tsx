@@ -13,11 +13,14 @@ export default function NavegationBar() {
             <li>
                 <a href="search">Search Hero</a>
             </li>
-            {/* <li>
-                <a href="about">About</a>
-            </li> */}
             <li>
                 <a href="characters">Characters</a>
+            </li>
+            <li>
+                <a href="comics">Comics</a>
+            </li>
+            <li>
+                <a href="creators">Creators</a>
             </li>
         </ul>
 

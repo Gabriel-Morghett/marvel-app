@@ -4,16 +4,18 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 
 // routes
-import Search from "./routes/Search";
-import About from "./routes/About";
-import Characters from "./routes/Characters";
 import Authentication from "./routes/Authentication";
+import Search from "./routes/Search";
+import Characters from "./routes/Characters";
+import Comics from "./routes/Comics";
+import Creators from "./routes/Creators";
 
 // components
 import NavegationBar from "./components/NavegationBar";
 
 // css
 import "./styles/App.css";
+
 
 function App() {
 
@@ -27,7 +29,9 @@ function App() {
                     <Routes>
                         <Route path={"/"} element={<Authentication />} />
                         <Route path={"/search"} element={<Search />} />
-                        <Route path={"/:id"} element={<Characters />} />
+                        <Route path={"/characters"} element={<Characters />} />
+                        <Route path={"/comics"} element={<Comics />} />
+                        <Route path={"/creators"} element={<Creators />} />
                     </Routes>
                 </Router>
             </div>
