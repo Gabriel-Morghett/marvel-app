@@ -18,19 +18,23 @@ const fetchHeroes = async (value: string, publicKey: string, privateKey: string)
   
     try {
         const response = await fetch(url)
-        if (!response.ok) {
-            toast.error("Failed search! Change your keys and try again", {
-                position: "bottom-center",
-            });
-            throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-        }
         const data = await response.json()
         console.log(data)
-        toast.success("Search was successfull", {
+        if(data.data.count === 0) {
+            toast.info("There were no results for your search", {
+                position: "bottom-center",
+            });
+        } else {
+            toast.success("Search was successfull", {
+                position: "bottom-center",
+            });
+        }
+        
+        return data.data.results;
+    } catch (err) {
+        toast.error("Failed search! Change your keys and try again", {
             position: "bottom-center",
         });
-        return data
-    } catch (err) {
         console.error("Erro no fetchHero", err)
         throw err
     }

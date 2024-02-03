@@ -1,5 +1,4 @@
-import React from 'react'
-import AuthenticationScreen from '../components/AuthenticationScreen'
+import AuthenticationScreen from '../components/screens/AuthenticationScreen'
 import Container from '../components/Container'
 import { CookiesProvider, useCookies } from "react-cookie";
 import { toast } from 'react-toastify';

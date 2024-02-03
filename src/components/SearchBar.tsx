@@ -9,7 +9,6 @@ interface SearchBarProps {
 export default function SearchBar({setter} : SearchBarProps) {
     const input = useRef<HTMLInputElement>(null);
     const [cookies] = useCookies(['user']);
-    console.log("COOKIES AQUI", cookies)
 
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
