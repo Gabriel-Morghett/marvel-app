@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 
 interface GridProps {
-  children?: ReactNode;
+	children?: ReactNode;
 }
 
 export default function Grid({ children }: GridProps) {
-  return <div className="grid">{children}</div>;
+	return <div className="grid">{children}</div>;
 }
