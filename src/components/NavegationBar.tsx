@@ -11,9 +11,6 @@ export default function NavegationBar() {
                 <a href="/">Authentication</a>
             </li>
             <li>
-                <a href="search">Search Hero</a>
-            </li>
-            <li>
                 <a href="characters">Characters</a>
             </li>
             <li>

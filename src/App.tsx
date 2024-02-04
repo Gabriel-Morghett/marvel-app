@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 
 // routes
 import Authentication from "./routes/Authentication";
-import Search from "./routes/Search";
 import Characters from "./routes/Characters";
 import Comics from "./routes/Comics";
 import Creators from "./routes/Creators";
@@ -28,7 +27,6 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path={"/"} element={<Authentication />} />
-                        <Route path={"/search"} element={<Search />} />
                         <Route path={"/characters"} element={<Characters />} />
                         <Route path={"/comics"} element={<Comics />} />
                         <Route path={"/creators"} element={<Creators />} />
