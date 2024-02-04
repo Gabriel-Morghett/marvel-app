@@ -1,11 +1,10 @@
 import React, { useRef } from 'react'
-import { fetchCreators, fetchHeroes } from '../libs/utils';
 import { useCookies } from 'react-cookie';
 
 interface SearchBarProps {
     setter: (heroes: any) => void;
     fetchFunction: (value: string, publicKey: string, privateKey: string) => void;
-  }
+}
 
 export default function SearchBar({setter, fetchFunction} : SearchBarProps) {
     const input = useRef<HTMLInputElement>(null);

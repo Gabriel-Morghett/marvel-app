@@ -20,7 +20,6 @@ export default function NavegationBar() {
                 <a href="creators">Creators</a>
             </li>
         </ul>
-
     </nav>
   )
 }

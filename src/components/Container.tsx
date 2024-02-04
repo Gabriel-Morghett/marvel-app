@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 
 interface ContainerProps {
-  children?: ReactNode;
+	children?: ReactNode;
 }
 
 export default function Container({ children }: ContainerProps) {
-  return <div className="container">{children}</div>;
+	return <div className="container">{children}</div>;
 }

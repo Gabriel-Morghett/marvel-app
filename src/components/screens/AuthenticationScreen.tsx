@@ -1,4 +1,4 @@
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 
 type Props = {
     onLogin: (keys: { publicKey: string; privateKey: string }) => void;

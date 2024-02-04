@@ -9,7 +9,6 @@ const getHash = (ts : string, privateKey : string, publicKey : string) => {
 }
 
 const fetchHeroes = async (value: string, publicKey: string, privateKey: string) => {
-    
     let baseUrl = `${API_URL}/v1/public/characters`
     let ts : string = Date.now().toString()
     let hash = getHash(ts, privateKey, publicKey)
@@ -35,8 +34,8 @@ const fetchHeroes = async (value: string, publicKey: string, privateKey: string)
                 position: "bottom-center",
             });
         }
-        
         return data.data.results;
+
     } catch (err) {
         toast.error("Failed search! Change your keys and try again", {
             position: "bottom-center",
@@ -46,8 +45,44 @@ const fetchHeroes = async (value: string, publicKey: string, privateKey: string)
     }
 }
 
-const fetchCreators = async (value: string, publicKey: string, privateKey: string) => {
+const fetchComics = async (value: string, publicKey: string, privateKey: string) => {
+    let baseUrl = `${API_URL}/v1/public/comics`
+    let ts : string = Date.now().toString()
+    let hash = getHash(ts, privateKey, publicKey)
+
+    let url = ""
+
+    if (value === "") {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+    } else {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&titleStartsWith=${value}`
+    }
     
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        console.log(data)
+        if(data.data.count === 0) {
+            toast.info("There were no results for your search", {
+                position: "bottom-center",
+            });
+        } else {
+            toast.success("Search was successfull", {
+                position: "bottom-center",
+            });
+        }
+        return data.data.results;
+
+    } catch (err) {
+        toast.error("Invalid user Keys! Change your keys and try again", {
+            position: "bottom-center",
+        });
+        console.error("Erro no fetchHero", err)
+        throw err
+    }
+}
+
+const fetchCreators = async (value: string, publicKey: string, privateKey: string) => {
     let baseUrl = `${API_URL}/v1/public/creators`
     let ts : string = Date.now().toString()
     let hash = getHash(ts, privateKey, publicKey)
@@ -73,8 +108,8 @@ const fetchCreators = async (value: string, publicKey: string, privateKey: strin
                 position: "bottom-center",
             });
         }
-        
         return data.data.results;
+
     } catch (err) {
         toast.error("Invalid user Keys! Change your keys and try again", {
             position: "bottom-center",
@@ -85,4 +120,4 @@ const fetchCreators = async (value: string, publicKey: string, privateKey: strin
 }
 
 
-export {fetchHeroes, fetchCreators}
+export {fetchHeroes, fetchCreators, fetchComics}
