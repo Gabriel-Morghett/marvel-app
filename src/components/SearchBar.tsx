@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { fetchHero, fetchHeroes } from '../libs/utils';
+import { fetchCreators, fetchHeroes } from '../libs/utils';
 import { useCookies } from 'react-cookie';
 
 interface SearchBarProps {
@@ -13,8 +13,7 @@ export default function SearchBar({setter} : SearchBarProps) {
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        const value = input.current?.value;
-        if (!value) return;
+        const value = input.current?.value ? input.current?.value : "";
 
         const { user } = cookies;
 

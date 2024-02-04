@@ -14,8 +14,14 @@ const fetchHeroes = async (value: string, publicKey: string, privateKey: string)
     let ts : string = Date.now().toString()
     let hash = getHash(ts, privateKey, publicKey)
 
-    let url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${value}`
-  
+    let url = ""
+
+    if (value === "") {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+    } else {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${value}`
+    }
+    
     try {
         const response = await fetch(url)
         const data = await response.json()
@@ -40,28 +46,43 @@ const fetchHeroes = async (value: string, publicKey: string, privateKey: string)
     }
 }
 
-const fetchHero = async (id: string, publicKey: string, privateKey: string) => {
+const fetchCreators = async (value: string, publicKey: string, privateKey: string) => {
     
-    let baseUrl = `${API_URL}/v1/public/characters/${id}`
+    let baseUrl = `${API_URL}/v1/public/creators`
     let ts : string = Date.now().toString()
     let hash = getHash(ts, privateKey, publicKey)
 
-    let url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+    let url = ""
+
+    if (value === "") {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+    } else {
+        url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${value}`
+    }
     
     try {
-        console.log("dando fetch na API agora")
         const response = await fetch(url)
-        if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-        }
         const data = await response.json()
         console.log(data)
-        return data
+        if(data.data.count === 0) {
+            toast.info("There were no results for your search", {
+                position: "bottom-center",
+            });
+        } else {
+            toast.success("Search was successfull", {
+                position: "bottom-center",
+            });
+        }
+        
+        return data.data.results;
     } catch (err) {
+        toast.error("Invalid user Keys! Change your keys and try again", {
+            position: "bottom-center",
+        });
         console.error("Erro no fetchHero", err)
         throw err
     }
 }
 
 
-export {fetchHeroes, fetchHero}
+export {fetchHeroes, fetchCreators}
