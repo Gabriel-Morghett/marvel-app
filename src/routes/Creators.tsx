@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import SearchBar from "../components/SearchBar";
 import Grid from "../components/Grid";
 import Card from "../components/Card";
+import { fetchCreators } from '../libs/utils';
 
 const IMAGE_SIZE = "portrait_fantastic"
 
@@ -35,7 +36,7 @@ export default function Characters() {
 	return (
     	<Container>
 			<h1>Marvel Creators</h1>
-            <SearchBar setter={setCreators}/>
+            <SearchBar setter={setCreators} fetchFunction={fetchCreators}/>
             <Grid>
 				{cards ? cards : null}
 			</Grid>
