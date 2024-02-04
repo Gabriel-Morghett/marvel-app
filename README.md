@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Marvel APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made using the React framework.
+It's a web page that you can use to access various informations from the Marvel API.
+It has 4 different pages which you can navegate between using the navegation bar on the top of the page. They are:
 
-## Available Scripts
+- Authentication
+- Characters
+- Comics
+- Creators
 
-In the project directory, you can run:
 
-### `npm start`
+# Authentication
+It's the homepage of the aplication. In here, the user is asked to insert his private key and public key, which are both necessary to access the marvel API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+After inserting his keys and hitting the submit button, the user's keys will be stored in the cookies of the page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Characters
+In this page, the user can search for any superhero name, and the page will display a grid with all the results.
+It's important to note that the aplication uses the private and public keys that are stored in the cookies to make the API request, so the user must inform valid keys in the authentication page in order for this page to show the intended results.
 
-### `npm test`
+#  Comics (not yet implemented)
+In this page, the user can search for any comics name, and the page will display a grid with all the results.
+Similarly to the Characters page, it will only return the results from the API if the user keys are properly set.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Creators (not yet implemented)
+In this page, the user can search for any creators name, and the page will display a grid with all the results.
+It will also only show the results if the user keys are properly set in the page cookies.
 
-### `npm run build`
+# Running the aplication
+You can run this aplication locally in your computer by following these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Download ZIP
+In this project [repository](https://github.com/Gabriel-Morghett/marvel-app), click on the "Code" button and download the zip file to your computer, then extract the zip file.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Open folder in a terminal
+Open a terminal and navegate to the folder you just extracted using the "cd" comand.
+If you have Visual Studio Code instaled in your computer, you can right-click the folder, click on "Open with Code" and use the terminal from there.
+If you have no idea what I'm talking about, [this tutorial](https://www.wikihow.com/Change-Directories-in-Command-Prompt) might help.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##NPM
+For this step you have to have npm installed in your computer, learn how to do that [here](https://phoenixnap.com/kb/install-node-js-npm-on-windows).
+With the terminal in the root folder, first run "npm install" and then "npm start" to get the aplication going.
+It should automatically open a [localhost:3000](localhost:3000) page on your web browser, but if this doesn't happen, you can open it yourself.
 
-### `npm run eject`
+###If you got to this part, congratulations, you have the aplication running locally on your computer, but this isn't enought to use the aplication successfully as you will need to get your public and private keys, so continue to the next step.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##Getting your user keys
+First, go to the [marvel developer's website](https://developer.marvel.com/) and create an account.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+From your account, go to the Get a key page and you should be looking at both your public and private keys.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##Using your user keys
+On your running aplication, go to the authentiction page and fill your public and private key as requested, and then click submit.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##Have fun
+Now your user keys are saved and you should be able to play with the other pages, searching for your favorite heroes, comics and creators.
