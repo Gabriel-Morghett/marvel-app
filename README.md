@@ -33,7 +33,7 @@ You can run this aplication locally in your computer by following these steps:
 ## Download ZIP
 In this project [repository](https://github.com/Gabriel-Morghett/marvel-app), click on the "Code" button and download the zip file to your computer, then extract the zip file.
 
-##Open folder in a terminal
+## Open folder in a terminal
 Open a terminal and navegate to the folder you just extracted using the "cd" comand.
 If you have Visual Studio Code instaled in your computer, you can right-click the folder, click on "Open with Code" and use the terminal from there.
 If you have no idea what I'm talking about, [this tutorial](https://www.wikihow.com/Change-Directories-in-Command-Prompt) might help.
