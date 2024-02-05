@@ -19,11 +19,11 @@ After inserting his keys and hitting the submit button, the user's keys will be 
 In this page, the user can search for any superhero name, and the page will display a grid with all the results.
 It's important to note that the aplication uses the private and public keys that are stored in the cookies to make the API request, so the user must inform valid keys in the authentication page in order for this page to show the intended results.
 
-## Comics (not yet implemented)
+## Comics
 In this page, the user can search for any comics name, and the page will display a grid with all the results.
 Similarly to the Characters page, it will only return the results from the API if the user keys are properly set.
 
-## Creators (not yet implemented)
+## Creators
 In this page, the user can search for any creators name, and the page will display a grid with all the results.
 It will also only show the results if the user keys are properly set in the page cookies.
 
